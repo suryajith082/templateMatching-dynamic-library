@@ -18,7 +18,7 @@ Mat img; Mat temp; Mat result;
 //int match_method;
 //string a;
 //string b;
-int res(char* a, char* b) {
+void res(char* a, char* b, int* x, int* y) {
     auto start = high_resolution_clock::now(); 
     Mat img = imread(a);
     cout << a << endl;
@@ -55,6 +55,8 @@ int res(char* a, char* b) {
 
     rectangle(img_display, matchLoc, Point(matchLoc.x + temp.cols, matchLoc.y + temp.rows), Scalar(0, 0, 0), 2, 8, 0);
     rectangle(result, matchLoc, Point(matchLoc.x + temp.cols, matchLoc.y + temp.rows), Scalar(0, 0, 0), 2, 8, 0);
+    *x = matchLoc.x;
+    *y = matchLoc.y;
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "Time taken by function: "
@@ -65,5 +67,4 @@ int res(char* a, char* b) {
     //cout << img;
     //cout << temp;
     waitKey(0);
-    return matchLoc.x;
 }

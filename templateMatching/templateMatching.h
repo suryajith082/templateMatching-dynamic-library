@@ -4,4 +4,4 @@
 #else  
 #define templateMatchingApi __declspec(dllimport)   
 #endif  
-extern "C" templateMatchingApi int res( char* a, char* b);
+extern "C" templateMatchingApi void res( char* a, char* b, int* x, int* y);
